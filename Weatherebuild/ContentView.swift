@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+
+  //MARK: - View Properties
+  @State private var cloudThickness = Cloud.Thickness.regular
+
+  //MARK: - View Body
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+          CloudsView(thickness: .regular)
         }
-        .padding()
+        .preferredColorScheme(.dark)
+        .background(.blue)
+        .safeAreaInset(edge: .bottom) {
+          VStack {
+            Picker("Thickness", selection: $cloudThickness) {
+              ForEach(Cloud.Thickness.allCases, id: \.self) {thickness in
+                Text(String(describing: thickness).capitalized)
+              }
+            }
+            .pickerStyle(.segmented)
+            .padding(5)
+            .frame(maxWidth: .infinity)
+            .background(.regularMaterial)
+          }
+        }
     }
 }
 
