@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3609AEFB293165280010B8BD /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3609AEFA293165280010B8BD /* Color+Extension.swift */; };
+		3609AEFD2931681F0010B8BD /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3609AEFC2931681F0010B8BD /* Array+Extension.swift */; };
 		3611ADA9292EB4D5004C2126 /* WeatherebuildApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611ADA8292EB4D5004C2126 /* WeatherebuildApp.swift */; };
 		3611ADAB292EB4D5004C2126 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611ADAA292EB4D5004C2126 /* ContentView.swift */; };
 		3611ADAD292EB4D8004C2126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3611ADAC292EB4D8004C2126 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3609AEFA293165280010B8BD /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		3609AEFC2931681F0010B8BD /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		3611ADA5292EB4D5004C2126 /* Weatherebuild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weatherebuild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3611ADA8292EB4D5004C2126 /* WeatherebuildApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherebuildApp.swift; sourceTree = "<group>"; };
 		3611ADAA292EB4D5004C2126 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				3611ADB6292EDA07004C2126 /* Cloud.swift */,
 				3611ADB8292FE1A0004C2126 /* CloudGroup.swift */,
 				3611ADBA292FF188004C2126 /* CloudsView.swift */,
+				3609AEFA293165280010B8BD /* Color+Extension.swift */,
+				3609AEFC2931681F0010B8BD /* Array+Extension.swift */,
 			);
 			path = Weatherebuild;
 			sourceTree = "<group>";
@@ -148,7 +154,9 @@
 			files = (
 				3611ADAB292EB4D5004C2126 /* ContentView.swift in Sources */,
 				3611ADB7292EDA07004C2126 /* Cloud.swift in Sources */,
+				3609AEFB293165280010B8BD /* Color+Extension.swift in Sources */,
 				3611ADA9292EB4D5004C2126 /* WeatherebuildApp.swift in Sources */,
+				3609AEFD2931681F0010B8BD /* Array+Extension.swift in Sources */,
 				3611ADB9292FE1A0004C2126 /* CloudGroup.swift in Sources */,
 				3611ADBB292FF188004C2126 /* CloudsView.swift in Sources */,
 			);
