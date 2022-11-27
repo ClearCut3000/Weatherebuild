@@ -11,7 +11,8 @@ struct CloudsView: View {
 
   //MARK: - View Properties
   var cloudGroup: CloudGroup
-
+  let topTint: Color
+  let bottomTint: Color
 
   //MARK: - View Body
   var body: some View {
@@ -22,7 +23,10 @@ struct CloudsView: View {
 
         let resolvedImage = (0..<8).map { i -> GraphicsContext.ResolvedImage in
           let sorceImage = Image("cloud\(i)")
-          let resolved = context.resolve(sorceImage)
+          var resolved = context.resolve(sorceImage)
+          resolved.shading = .linearGradient(Gradient(colors: [topTint, bottomTint]),
+                                             startPoint: .zero,
+                                             endPoint: CGPoint(x: 0, y: resolved.size.height))
           return resolved
         }
 
@@ -38,14 +42,16 @@ struct CloudsView: View {
     .frame(maxWidth: .infinity, maxHeight: .infinity)
   }
 
-  init(thickness: Cloud.Thickness) {
+  init(thickness: Cloud.Thickness, topTint: Color, bottomTint: Color) {
     cloudGroup = CloudGroup(thickness: thickness)
+    self.topTint = topTint
+    self.bottomTint = bottomTint
   }
 }
 
 struct CloudsView_Previews: PreviewProvider {
     static var previews: some View {
-      CloudsView(thickness: .regular)
+      CloudsView(thickness: .regular, topTint: .white, bottomTint: .white)
         .background(.blue)
     }
 }
