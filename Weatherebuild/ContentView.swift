@@ -43,7 +43,7 @@ struct ContentView: View {
   //MARK: - View Body
   var body: some View {
     ZStack {
-      CloudsView(thickness: .regular)
+      CloudsView(thickness: cloudThickness)
     }
     .preferredColorScheme(.dark)
     .background( LinearGradient(colors: [
