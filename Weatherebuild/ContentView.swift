@@ -66,6 +66,11 @@ struct ContentView: View {
       .init(color: .white, location: 1)
   ]
 
+  var starOpacity: Double {
+    let color = starStops.interpolated(amount: time)
+    return color.getComponents().alpha
+  }
+
   var formattedTime: String {
     let start = Calendar.current.startOfDay(for: Date.now)
     let advanced = start.addingTimeInterval(time * 24 * 60 * 60)
@@ -76,7 +81,8 @@ struct ContentView: View {
   var body: some View {
     ZStack {
       StarsView()
-
+        .opacity(starOpacity)
+      
       CloudsView(thickness: cloudThickness,
                  topTint: cloudTopStops.interpolated(amount: time),
                  bottomTint: cloudBottomStops.interpolated(amount: time))
