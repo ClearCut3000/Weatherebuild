@@ -16,6 +16,9 @@
 		3611ADB7292EDA07004C2126 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611ADB6292EDA07004C2126 /* Cloud.swift */; };
 		3611ADB9292FE1A0004C2126 /* CloudGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611ADB8292FE1A0004C2126 /* CloudGroup.swift */; };
 		3611ADBB292FF188004C2126 /* CloudsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611ADBA292FF188004C2126 /* CloudsView.swift */; };
+		36897FCD2933FB8F00A97888 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36897FCC2933FB8F00A97888 /* Star.swift */; };
+		36897FCF2933FBAD00A97888 /* StarField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36897FCE2933FBAD00A97888 /* StarField.swift */; };
+		36897FD12933FBC400A97888 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36897FD02933FBC400A97888 /* StarsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		3611ADB6292EDA07004C2126 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		3611ADB8292FE1A0004C2126 /* CloudGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudGroup.swift; sourceTree = "<group>"; };
 		3611ADBA292FF188004C2126 /* CloudsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsView.swift; sourceTree = "<group>"; };
+		36897FCC2933FB8F00A97888 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		36897FCE2933FBAD00A97888 /* StarField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarField.swift; sourceTree = "<group>"; };
+		36897FD02933FBC400A97888 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 				3611ADAE292EB4D8004C2126 /* Preview Content */,
 				36897FCB2933FAB700A97888 /* Clouds */,
 				36897FCA2933FAA400A97888 /* Extensions */,
+				36897FD22933FBCA00A97888 /* Stars */,
 			);
 			path = Weatherebuild;
 			sourceTree = "<group>";
@@ -96,6 +103,16 @@
 				3611ADBA292FF188004C2126 /* CloudsView.swift */,
 			);
 			path = Clouds;
+			sourceTree = "<group>";
+		};
+		36897FD22933FBCA00A97888 /* Stars */ = {
+			isa = PBXGroup;
+			children = (
+				36897FCC2933FB8F00A97888 /* Star.swift */,
+				36897FCE2933FBAD00A97888 /* StarField.swift */,
+				36897FD02933FBC400A97888 /* StarsView.swift */,
+			);
+			path = Stars;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,12 +186,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3611ADAB292EB4D5004C2126 /* ContentView.swift in Sources */,
+				36897FCF2933FBAD00A97888 /* StarField.swift in Sources */,
+				36897FD12933FBC400A97888 /* StarsView.swift in Sources */,
 				3611ADB7292EDA07004C2126 /* Cloud.swift in Sources */,
 				3609AEFB293165280010B8BD /* Color+Extension.swift in Sources */,
 				3611ADA9292EB4D5004C2126 /* WeatherebuildApp.swift in Sources */,
 				3609AEFD2931681F0010B8BD /* Array+Extension.swift in Sources */,
 				3611ADB9292FE1A0004C2126 /* CloudGroup.swift in Sources */,
 				3611ADBB292FF188004C2126 /* CloudsView.swift in Sources */,
+				36897FCD2933FB8F00A97888 /* Star.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

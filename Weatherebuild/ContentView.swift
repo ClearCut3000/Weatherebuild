@@ -55,6 +55,17 @@ struct ContentView: View {
       .init(color: .darkCloudEnd, location: 1)
   ]
 
+  let starStops: [Gradient.Stop] = [
+      .init(color: .white, location: 0),
+      .init(color: .white, location: 0.25),
+      .init(color: .clear, location: 0.333),
+      .init(color: .clear, location: 0.38),
+      .init(color: .clear, location: 0.7),
+      .init(color: .clear, location: 0.8),
+      .init(color: .white, location: 0.85),
+      .init(color: .white, location: 1)
+  ]
+
   var formattedTime: String {
     let start = Calendar.current.startOfDay(for: Date.now)
     let advanced = start.addingTimeInterval(time * 24 * 60 * 60)
@@ -64,6 +75,8 @@ struct ContentView: View {
   //MARK: - View Body
   var body: some View {
     ZStack {
+      StarsView()
+
       CloudsView(thickness: cloudThickness,
                  topTint: cloudTopStops.interpolated(amount: time),
                  bottomTint: cloudBottomStops.interpolated(amount: time))
