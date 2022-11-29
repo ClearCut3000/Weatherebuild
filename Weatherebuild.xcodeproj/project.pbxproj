@@ -80,9 +80,7 @@
 				36897FCB2933FAB700A97888 /* Clouds */,
 				36897FCA2933FAA400A97888 /* Extensions */,
 				36897FD22933FBCA00A97888 /* Stars */,
-				3640F6F5293695CF005D3237 /* Storm.swift */,
-				3640F6F72936961F005D3237 /* StormDrop.swift */,
-				3640F6F929369B89005D3237 /* StormView.swift */,
+				3640F6FB2936C0BB005D3237 /* Storm */,
 			);
 			path = Weatherebuild;
 			sourceTree = "<group>";
@@ -93,6 +91,16 @@
 				3611ADAF292EB4D8004C2126 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3640F6FB2936C0BB005D3237 /* Storm */ = {
+			isa = PBXGroup;
+			children = (
+				3640F6F5293695CF005D3237 /* Storm.swift */,
+				3640F6F72936961F005D3237 /* StormDrop.swift */,
+				3640F6F929369B89005D3237 /* StormView.swift */,
+			);
+			path = Storm;
 			sourceTree = "<group>";
 		};
 		36897FCA2933FAA400A97888 /* Extensions */ = {
