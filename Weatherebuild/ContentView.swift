@@ -84,19 +84,22 @@ struct ContentView: View {
   //MARK: - View Body
   var body: some View {
     ZStack {
-      StarsView()
-        .opacity(starOpacity)
-      
-      CloudsView(thickness: cloudThickness,
-                 topTint: cloudTopStops.interpolated(amount: time),
-                 bottomTint: cloudBottomStops.interpolated(amount: time))
+//      StarsView()
+//        .opacity(starOpacity)
+//
+//      CloudsView(thickness: cloudThickness,
+//                 topTint: cloudTopStops.interpolated(amount: time),
+//                 bottomTint: cloudBottomStops.interpolated(amount: time))
 
-      if stormType != .none {
-        StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
-      }
-      WeatherDetailsView(tintColor: backgroundTopStops.interpolated(amount: time),
-                         residueType: stormType,
-                         residueStrength: rainIntensity)
+      LightningView()
+
+//      if stormType != .none {
+//        StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
+//      }
+//
+//      WeatherDetailsView(tintColor: backgroundTopStops.interpolated(amount: time),
+//                         residueType: stormType,
+//                         residueStrength: rainIntensity)
     }
     .preferredColorScheme(.dark)
     .frame(maxWidth: .infinity, maxHeight: .infinity)

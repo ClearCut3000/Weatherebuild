@@ -35,22 +35,47 @@ class Lightning {
         guard var lastPoint = bolt.points.last else { continue }
 
         for _ in 0..<5 {
-          let endX = lastPoint.x + (speed * cos(bolt.angle))
-          let endY = lastPoint.y - sin(speed * sin(bolt.angle))
+          let endX = lastPoint.x + (speed * cos(bolt.angle)) + Double.random(in: -15...15)
+          let endY = lastPoint.y - (speed * sin(bolt.angle)) + Double.random(in: -15...15)
           lastPoint = CGPoint(x: endX, y: endY)
           bolt.points.append(lastPoint)
         }
         if lastPoint.y < size.height {
-            hasFinishedStriking = false
+          hasFinishedStriking = false
+          /// Create a fork
+          if bolts.count < 4 && Int.random(in: 0..<100) <= 20 {
+            /// Pick a new angle for the forked segment
+            let newAngle = Double.random(in: -.pi / 4 ... .pi / 4) - .pi / 2
+            /// Creating a new lightningBolt object with its start position set to lastPoint and its width set to 75% of our current width so that forked bolts get slimmer
+            let newBolt = LightningBolt(start: lastPoint, width: bolt.width * 0.75, angle: newAngle)
+            /// Add that to our bolts array so we update and render it
+            bolts.append(newBolt)
+          }
         }
       }
       if hasFinishedStriking {
-          state = .fading
+        state = .fading
+        /// increase the width of all bolts by 50% to give them some extra visual energy
+        for bolt in bolts {
+          bolt.width *= 1.5
+        }
       }
 
     case .fading:
-      state = .waiting
-      bolts.removeAll(keepingCapacity: true)
+      var allFaded = true
+      ///  fades out all the bolts until they are all invisible
+      for bolt in bolts {
+        bolt.width -= delta * 15
+
+        if bolt.width > 0.05 {
+          allFaded = false
+        }
+      }
+      /// when that has happened will clear the bolts array and change state
+      if allFaded {
+        state = .waiting
+        bolts.removeAll(keepingCapacity: true)
+      }
     }
   }
 
