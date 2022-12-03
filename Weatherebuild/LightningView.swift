@@ -12,8 +12,9 @@ struct LightningView: View {
   var lightning: Lightning
 
   //MARK: - View Init
-  init() {
-      lightning = Lightning()
+  
+  init(maximumBolts: Int = 4, forkProbability: Int = 20) {
+    lightning = Lightning(maximumBolts: maximumBolts, forkProbability: forkProbability)
   }
 
   //MARK: - View Body

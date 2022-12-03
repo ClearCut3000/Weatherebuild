@@ -18,6 +18,15 @@ class Lightning {
   var lastUpdate = Date.now
   var flashOpacity = 0.05
 
+  var maximumBolts: Int
+  var forkProbability: Int
+
+  //MARK: - View Init
+  init(maximumBolts: Int, forkProbability: Int) {
+      self.maximumBolts = maximumBolts
+      self.forkProbability = forkProbability
+  }
+
   //MARK: - Methods
   /// Animates the lightning effect over time
   func update(date: Date, in size: CGSize) {
@@ -50,7 +59,7 @@ class Lightning {
         if lastPoint.y < size.height {
           hasFinishedStriking = false
           /// Create a fork
-          if bolts.count < 4 && Int.random(in: 0..<100) <= 20 {
+          if bolts.count < maximumBolts && Int.random(in: 0..<100) <= forkProbability {
             /// Pick a new angle for the forked segment
             let newAngle = Double.random(in: -.pi / 4 ... .pi / 4) - .pi / 2
             /// Creating a new lightningBolt object with its start position set to lastPoint and its width set to 75% of our current width so that forked bolts get slimmer

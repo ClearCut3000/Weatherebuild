@@ -17,6 +17,9 @@ struct ContentView: View {
   @State private var rainIntensity = 500.0
   @State private var rainAngle = 0.0
 
+  @State private var lightningMaxBolts = 4.0
+  @State private var lightningForkProbability = 20.0
+
   let backgroundTopStops: [Gradient.Stop] = [
     .init(color: .midnightStart, location: 0),
     .init(color: .midnightStart, location: 0.25),
@@ -91,7 +94,7 @@ struct ContentView: View {
 //                 topTint: cloudTopStops.interpolated(amount: time),
 //                 bottomTint: cloudBottomStops.interpolated(amount: time))
 
-      LightningView()
+      LightningView(maximumBolts: Int(lightningMaxBolts), forkProbability: Int(lightningForkProbability))
 
 //      if stormType != .none {
 //        StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
@@ -140,6 +143,19 @@ struct ContentView: View {
           Text("Angle:")
           Slider(value: $rainAngle, in: 0...90)
         }
+
+        HStack {
+          Text("Max Bolts:")
+          Slider(value: $lightningMaxBolts, in: 0...10)
+        }
+        .padding(.horizontal)
+
+        HStack {
+          Text("Fork %:")
+          Slider(value: $lightningForkProbability, in: 0...100)
+        }
+        .padding(.horizontal)
+
       }
       .padding(5)
       .frame(maxWidth: .infinity)
