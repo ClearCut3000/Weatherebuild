@@ -22,10 +22,16 @@ struct LightningView: View {
         Canvas { context, size in
           lightning.update(date: timeline.date, in: size)
 
-          for bolt in lightning.bolts {
-            var path = Path()
-            path.addLines(bolt.points)
-            context.stroke(path, with: .color(.white), lineWidth: bolt.width)
+          let fullScreen = Path(CGRect(origin: .zero, size: size))
+          context.fill(fullScreen, with: .color(.white.opacity(lightning.flashOpacity)))
+
+          for _ in 0..<2 {
+            for bolt in lightning.bolts {
+              var path = Path()
+              path.addLines(bolt.points)
+              context.stroke(path, with: .color(.white), lineWidth: bolt.width)
+            }
+            context.addFilter(.blur(radius: 5))
           }
         }
       }

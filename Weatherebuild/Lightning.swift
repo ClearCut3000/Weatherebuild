@@ -9,13 +9,14 @@ import SwiftUI
 
 class Lightning {
   enum LightningState {
-    case waiting, striking, fading
+    case waiting, preparing, striking, fading
   }
 
   //MARK: - Properties
   var bolts = [LightningBolt]()
   var state = LightningState.waiting
   var lastUpdate = Date.now
+  var flashOpacity = 0.05
 
   //MARK: - Methods
   /// Animates the lightning effect over time
@@ -26,6 +27,12 @@ class Lightning {
     switch state {
     case .waiting:
       break
+
+    case .preparing:
+      let startPosotion = CGPoint(x: Double.random(in: 50...size.width - 50), y: 0)
+      let newBolt = LightningBolt(start: startPosotion, width: 5, angle: Angle.degrees(270).radians)
+      bolts.append(newBolt)
+      state = .striking
 
     case .striking:
       let speed = delta * 800
@@ -55,6 +62,7 @@ class Lightning {
       }
       if hasFinishedStriking {
         state = .fading
+        flashOpacity = 0.6
         /// increase the width of all bolts by 50% to give them some extra visual energy
         for bolt in bolts {
           bolt.width *= 1.5
@@ -63,6 +71,7 @@ class Lightning {
 
     case .fading:
       var allFaded = true
+      flashOpacity -= delta
       ///  fades out all the bolts until they are all invisible
       for bolt in bolts {
         bolt.width -= delta * 15
@@ -72,7 +81,7 @@ class Lightning {
         }
       }
       /// when that has happened will clear the bolts array and change state
-      if allFaded {
+      if allFaded && flashOpacity <= 0 {
         state = .waiting
         bolts.removeAll(keepingCapacity: true)
       }
@@ -81,11 +90,7 @@ class Lightning {
 
   /// Creates a lightning bolt on demand
   func strike() {
-      guard bolts.isEmpty else { return }
-      state = .striking
-
-      let startPosition = CGPoint(x: 200, y: 0)
-      let newBolt = LightningBolt(start: startPosition, width: 5, angle: Angle.degrees(270).radians)
-      bolts.append(newBolt)
+    guard state == .waiting else { return }
+    state = .preparing
   }
 }
