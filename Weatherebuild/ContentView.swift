@@ -98,6 +98,8 @@ struct ContentView: View {
 
       LightningView(maximumBolts: Int(lightningMaxBolts), forkProbability: Int(lightningForkProbability))
 
+      SunView(progress: time)
+      
       //      if stormType != .none {
       //        StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
       //      }
