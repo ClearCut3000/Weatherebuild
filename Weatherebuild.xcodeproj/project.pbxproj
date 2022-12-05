@@ -17,6 +17,8 @@
 		3611ADB9292FE1A0004C2126 /* CloudGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611ADB8292FE1A0004C2126 /* CloudGroup.swift */; };
 		3611ADBB292FF188004C2126 /* CloudsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611ADBA292FF188004C2126 /* CloudsView.swift */; };
 		361C3CBF293D42D4000FE45E /* SunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361C3CBE293D42D4000FE45E /* SunView.swift */; };
+		361C3CC2293E66E3000FE45E /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361C3CC1293E66E3000FE45E /* Meteor.swift */; };
+		361C3CC4293E67BF000FE45E /* MeteorShower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361C3CC3293E67BF000FE45E /* MeteorShower.swift */; };
 		3640F6F6293695CF005D3237 /* Storm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3640F6F5293695CF005D3237 /* Storm.swift */; };
 		3640F6F82936961F005D3237 /* StormDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3640F6F72936961F005D3237 /* StormDrop.swift */; };
 		3640F6FA29369B89005D3237 /* StormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3640F6F929369B89005D3237 /* StormView.swift */; };
@@ -44,6 +46,8 @@
 		3611ADB8292FE1A0004C2126 /* CloudGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudGroup.swift; sourceTree = "<group>"; };
 		3611ADBA292FF188004C2126 /* CloudsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsView.swift; sourceTree = "<group>"; };
 		361C3CBE293D42D4000FE45E /* SunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunView.swift; sourceTree = "<group>"; };
+		361C3CC1293E66E3000FE45E /* Meteor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
+		361C3CC3293E67BF000FE45E /* MeteorShower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorShower.swift; sourceTree = "<group>"; };
 		3640F6F5293695CF005D3237 /* Storm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm.swift; sourceTree = "<group>"; };
 		3640F6F72936961F005D3237 /* StormDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormDrop.swift; sourceTree = "<group>"; };
 		3640F6F929369B89005D3237 /* StormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormView.swift; sourceTree = "<group>"; };
@@ -99,7 +103,9 @@
 				3640F6FB2936C0BB005D3237 /* Storm */,
 				3640F7042938035E005D3237 /* Residue */,
 				361C3CBD293D42BE000FE45E /* Lightning */,
-				361C3CBE293D42D4000FE45E /* SunView.swift */,
+				361C3CC0293E65EF000FE45E /* Sun */,
+				361C3CC1293E66E3000FE45E /* Meteor.swift */,
+				361C3CC3293E67BF000FE45E /* MeteorShower.swift */,
 			);
 			path = Weatherebuild;
 			sourceTree = "<group>";
@@ -120,6 +126,14 @@
 				3640F709293A8533005D3237 /* LightningView.swift */,
 			);
 			path = Lightning;
+			sourceTree = "<group>";
+		};
+		361C3CC0293E65EF000FE45E /* Sun */ = {
+			isa = PBXGroup;
+			children = (
+				361C3CBE293D42D4000FE45E /* SunView.swift */,
+			);
+			path = Sun;
 			sourceTree = "<group>";
 		};
 		3640F6FB2936C0BB005D3237 /* Storm */ = {
@@ -243,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3611ADAB292EB4D5004C2126 /* ContentView.swift in Sources */,
+				361C3CC2293E66E3000FE45E /* Meteor.swift in Sources */,
 				3640F7032938014C005D3237 /* WeatherDetailsView.swift in Sources */,
 				36897FCF2933FBAD00A97888 /* StarField.swift in Sources */,
 				3640F6FD2937F976005D3237 /* ResidueDrop.swift in Sources */,
@@ -262,6 +277,7 @@
 				3611ADB9292FE1A0004C2126 /* CloudGroup.swift in Sources */,
 				3611ADBB292FF188004C2126 /* CloudsView.swift in Sources */,
 				361C3CBF293D42D4000FE45E /* SunView.swift in Sources */,
+				361C3CC4293E67BF000FE45E /* MeteorShower.swift in Sources */,
 				36897FCD2933FB8F00A97888 /* Star.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
