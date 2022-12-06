@@ -12,7 +12,7 @@ struct ResidueView: View {
   //MARK: - View Properties
   var residue: Residue
 
-  //MARK: - Data Init
+  //MARK: - View Init
   init(type: Storm.Contents, strength: Double) {
     residue = Residue(type: type, strength: strength)
   }

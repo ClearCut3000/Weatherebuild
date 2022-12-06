@@ -104,8 +104,7 @@
 				3640F7042938035E005D3237 /* Residue */,
 				361C3CBD293D42BE000FE45E /* Lightning */,
 				361C3CC0293E65EF000FE45E /* Sun */,
-				361C3CC1293E66E3000FE45E /* Meteor.swift */,
-				361C3CC3293E67BF000FE45E /* MeteorShower.swift */,
+				361C3CC5293E929E000FE45E /* Meteors */,
 			);
 			path = Weatherebuild;
 			sourceTree = "<group>";
@@ -134,6 +133,15 @@
 				361C3CBE293D42D4000FE45E /* SunView.swift */,
 			);
 			path = Sun;
+			sourceTree = "<group>";
+		};
+		361C3CC5293E929E000FE45E /* Meteors */ = {
+			isa = PBXGroup;
+			children = (
+				361C3CC1293E66E3000FE45E /* Meteor.swift */,
+				361C3CC3293E67BF000FE45E /* MeteorShower.swift */,
+			);
+			path = Meteors;
 			sourceTree = "<group>";
 		};
 		3640F6FB2936C0BB005D3237 /* Storm */ = {

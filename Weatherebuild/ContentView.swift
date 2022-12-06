@@ -88,25 +88,32 @@ struct ContentView: View {
 
   //MARK: - View Body
   var body: some View {
-    ZStack {
-      //      StarsView()
-      //        .opacity(starOpacity)
-      //
-      //      CloudsView(thickness: cloudThickness,
-      //                 topTint: cloudTopStops.interpolated(amount: time),
-      //                 bottomTint: cloudBottomStops.interpolated(amount: time))
+    ZStack(alignment: .bottom) {
+      StarsView()
+        .opacity(starOpacity)
 
-      LightningView(maximumBolts: Int(lightningMaxBolts), forkProbability: Int(lightningForkProbability))
-
-      SunView(progress: time)
+      CloudsView(thickness: cloudThickness,
+                 topTint: cloudTopStops.interpolated(amount: time),
+                 bottomTint: cloudBottomStops.interpolated(amount: time))
+      if stormType == .none {
+        SunView(progress: time)
+      }
       
-      //      if stormType != .none {
-      //        StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
-      //      }
-      //
-      //      WeatherDetailsView(tintColor: backgroundTopStops.interpolated(amount: time),
-      //                         residueType: stormType,
-      //                         residueStrength: rainIntensity)
+      if stormType != .none {
+        StormView(type: stormType, direction: .degrees(rainAngle), strength: Int(rainIntensity))
+        if stormType == .rain {
+          LightningView(maximumBolts: Int(lightningMaxBolts), forkProbability: Int(lightningForkProbability))
+        }
+
+        //        WeatherDetailsView(tintColor: backgroundTopStops.interpolated(amount: time),
+        //                           residueType: stormType,
+        //                           residueStrength: rainIntensity)
+
+        ResidueView(type: stormType, strength: rainIntensity)
+          .frame(height: 62)
+          .offset(y: 30)
+          .zIndex(1)
+      }
     }
     .preferredColorScheme(.dark)
     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -116,11 +123,19 @@ struct ContentView: View {
     ], startPoint: .top, endPoint: .bottom))
     .safeAreaInset(edge: .bottom) {
       VStack {
-        Button("Toggle controls") {
+
+        Button {
           withAnimation {
             showingControls.toggle()
           }
+        } label: {
+          Text("Toggle controls")
+            .padding(8)
+            .background(showingControls ? .green.opacity(0.3) : .red.opacity(0.3))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
         }
+
         if showingControls {
           VStack {
             Text(formattedTime)
@@ -144,28 +159,33 @@ struct ContentView: View {
             }
             .pickerStyle(.segmented)
 
-            HStack {
-              Text("Intensity:")
-              Slider(value: $rainIntensity, in: 0...1000)
-            }
-            .padding(.horizontal)
 
-            HStack {
-              Text("Angle:")
-              Slider(value: $rainAngle, in: 0...90)
-            }
+            if stormType != .none {
+              HStack {
+                Text("Intensity:")
+                Slider(value: $rainIntensity, in: 0...1000)
+              }
+              .padding(.horizontal)
 
-            HStack {
-              Text("Max Bolts:")
-              Slider(value: $lightningMaxBolts, in: 0...10)
-            }
-            .padding(.horizontal)
+              HStack {
+                Text("Angle:")
+                Slider(value: $rainAngle, in: 0...90)
+              }
 
-            HStack {
-              Text("Fork %:")
-              Slider(value: $lightningForkProbability, in: 0...100)
+              if stormType == .rain {
+                HStack {
+                  Text("Max Bolts:")
+                  Slider(value: $lightningMaxBolts, in: 0...10)
+                }
+                .padding(.horizontal)
+
+                HStack {
+                  Text("Fork %:")
+                  Slider(value: $lightningForkProbability, in: 0...100)
+                }
+                .padding(.horizontal)
+              }
             }
-            .padding(.horizontal)
           }
           .transition(.move(edge: .bottom))
         }
